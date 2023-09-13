@@ -1,0 +1,33 @@
+@{
+    ViewData ["Title"]= "New Wedding";
+}
+@*Brining in a the model*@
+@model Wedding
+@* Brining in the html partial *@
+@await Html.PartialAsync("_Nav")
+
+<h1> Plan a Wedding</h1>
+
+    <form asp-action="CreateWedding" asp-controller="Wedding" method="Post">
+        <div class="my-3">
+            <label asp-for="WedderOneName"> </label>
+            <input asp-for="WedderOneName">
+            <span class="text-danger" asp-validation-for="WedderOneName"></span>
+        </div>
+        <div class="my-3">
+            <label asp-for="WedderTwoName"> </label>
+            <input asp-for="WedderTwoName">
+            <span class="text-danger" asp-validation-for="WedderTwoName"></span>
+        </div>
+        <div class="my-3">
+            <label asp-for="Date"> </label>
+            <input asp-for="Date">
+            <span class="text-danger" asp-validation-for="Date"></span>
+        </div>
+        <div class="my-3">
+            <label asp-for="Address"> </label>
+            <input asp-for="Address">
+            <span class="text-danger" asp-validation-for="Address"></span>
+        </div>
+        <button class="btn btn-primary">Create</button>
+    </form>

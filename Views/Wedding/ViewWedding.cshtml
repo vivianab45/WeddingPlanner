@@ -1,0 +1,29 @@
+@{
+    ViewData ["Title"]= "One Wedding";
+}
+@*Brining in a the model*@
+@model Wedding
+@* Brining in the html partial *@
+@await Html.PartialAsync("_Nav")
+
+<div class="row">
+    <div class="col-6">
+        <h1>@Model.WedderOneName & @Model.WedderTwoName's Wedding</h1>
+        <p>Date:@Model.Date.ToString("MMM d, yyyy") </p>
+        <p>Guests:</p>
+        <div>
+            <ul>
+                @foreach(UserWeddingRSVP uwr in Model.UserRSVPs)
+                {
+                    <li class="list-group-item">
+                        @uwr.RSVP.FirstName @uwr.RSVP.LastName
+                    </li>
+                }
+                @if(Model.UserRSVPs.Count ==0)
+                {
+                    <p>No RSVPs Yet</p>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
